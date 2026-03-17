@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #e0e0e0;
+            font-family: 'Arial Black', Arial, sans-serif;
+        }
+
+        .card {
+            position: relative;
+            width: 700px;
+            height: 394px;
+            background-color: #1565c0;
+            overflow: hidden;
+            border-radius: 4px;
+            margin: 0 40px;
+        }
+
+        /* Decorative floating cubes */
+        .cube {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 3px;
+        }
+
+        .cube-1  { width: 22px; height: 22px; top: 30px;  left: 260px; transform: rotate(20deg); }
+        .cube-2  { width: 16px; height: 16px; top: 70px;  left: 230px; transform: rotate(-10deg); }
+        .cube-3  { width: 28px; height: 28px; top: 10px;  right: 200px; transform: rotate(35deg); }
+        .cube-4  { width: 14px; height: 14px; top: 55px;  right: 160px; transform: rotate(-25deg); }
+        .cube-5  { width: 18px; height: 18px; bottom: 60px; left: 310px; transform: rotate(15deg); }
+        .cube-6  { width: 12px; height: 12px; bottom: 90px; left: 270px; transform: rotate(-30deg); }
+        .cube-7  { width: 20px; height: 20px; top: 140px; right: 50px;  transform: rotate(10deg); }
+        .cube-8  { width: 14px; height: 14px; bottom: 40px; right: 80px; transform: rotate(40deg); }
+
+        /* Logo top-left */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 24px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .logo-text {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: #ffcc00;
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 20px;
+            background-color: #ff0000;
+            border-radius: 5px;
+        }
+
+        .youtube-btn::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 9px solid #ffffff;
+            margin-left: 2px;
+        }
+
+        /* Illustration image covering full background */
+        .illustration {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Yellow angled banner */
+        .banner {
+            position: absolute;
+            bottom: 0;
+            left: -30px;
+            width: 430px;
+            background-color: #f5a800;
+            padding: 18px 30px 18px 50px;
+            transform: skewX(-4deg);
+            z-index: 5;
+        }
+
+        .banner-inner {
+            transform: skewX(4deg);
+        }
+
+        .banner h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Triangle accent on the right of the banner */
+        .banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -20px;
+            width: 0;
+            height: 0;
+            border-top: 0px solid transparent;
+            border-bottom: 200px solid #f5a800;
+            border-right: 20px solid transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <!-- Decorative cubes -->
+        <div class="cube cube-1"></div>
+        <div class="cube cube-2"></div>
+        <div class="cube cube-3"></div>
+        <div class="cube cube-4"></div>
+        <div class="cube cube-5"></div>
+        <div class="cube cube-6"></div>
+        <div class="cube cube-7"></div>
+        <div class="cube cube-8"></div>
+
+        <!-- Logo -->
+        <div class="logo">
+            <span class="logo-text">simpli<span>|</span>learn</span>
+            <div class="youtube-btn"></div>
+        </div>
+
+        <!-- Right-side illustration using existing image -->
+        <img class="illustration" src="background1.jpg" alt="Web Development Illustration">
+
+        <!-- Yellow text banner -->
+        <div class="banner">
+            <div class="banner-inner">
+                <h1>WEB DEVELOPMENT<br>PROJECTS<br>FOR BEGINNERS</h1>
+            </div>
+        </div>
+F
+    </div>
+
+</body>
+
+</html>
