@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backgrounds — Study Page</title>
+    <style>
+
+        /* ── PAGE BASE ─────────────────────────────────────────── */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ── SHARED CARD STYLES ────────────────────────────────── */
+        .section {
+            padding: 40px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .section h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section p {
+            margin: 0 0 6px 0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        .label {
+            display: inline-block;
+            background: rgba(0,0,0,0.35);
+            color: white;
+            font-family: monospace;
+            font-size: 0.85em;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+
+        /* ================================================================
+           1. SOLID COLOR
+        ================================================================ */
+        .bg-solid {
+            background-color: #1a1a2e;
+            color: white;
+        }
+
+
+        /* ================================================================
+           2. LINEAR GRADIENT — left to right
+        ================================================================ */
+        .bg-linear-lr {
+            background: linear-gradient(to right, #e96c6c, #ffcc00);
+            color: #111;
+        }
+
+
+        /* ================================================================
+           3. LINEAR GRADIENT — diagonal with multiple stops
+        ================================================================ */
+        .bg-linear-multi {
+            background: linear-gradient(135deg, #0f3460, #533483, #e94560);
+            color: white;
+        }
+
+
+        /* ================================================================
+           4. RADIAL GRADIENT
+        ================================================================ */
+        .bg-radial {
+            background: radial-gradient(circle at center, #ffcc00 0%, #e96c6c 60%, #1a1a2e 100%);
+            color: #111;
+        }
+
+
+        /* ================================================================
+           5. IMAGE BACKGROUND
+           Replace 'image2.jpg' with any image in your project folder.
+        ================================================================ */
+        .bg-image {
+            background-image: url('image2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+
+        /* ================================================================
+           6. IMAGE + DARK OVERLAY
+           Two backgrounds stacked — gradient on top, image below.
+           The gradient darkens the image so text stays readable.
+        ================================================================ */
+        .bg-image-overlay {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('image2.jpg') center / cover no-repeat;
+            color: white;
+        }
+
+
+        /* ================================================================
+           7. ANIMATED GRADIENT
+           background-size is made very wide so the position shift
+           produces a smooth colour-cycling effect.
+        ================================================================ */
+        .bg-animated {
+            background: linear-gradient(270deg, #e96c6c, #ffcc00, #66bb6a, #0057b7);
+            background-size: 400% 400%;
+            animation: gradientShift 6s ease infinite;
+            color: white;
+        }
+        @keyframes gradientShift {
+            0%   { background-position: 0%   50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0%   50%; }
+        }
+
+
+        /* ================================================================
+           8. RGBA — semi-transparent colour over the page background
+           The div below sits over a striped wrapper to make the
+           transparency visible.
+        ================================================================ */
+        .bg-rgba-wrapper {
+            background: repeating-linear-gradient(
+                45deg,
+                #ccc,
+                #ccc 10px,
+                #fff 10px,
+                #fff 20px
+            );
+            padding: 40px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .bg-rgba-inner {
+            background-color: rgba(0, 87, 183, 0.4);   /* blue at 40% opacity */
+            color: white;
+            padding: 24px 32px;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. SOLID -->
+    <div class="section bg-solid">
+        <h2>1. Solid Color</h2>
+        <p>The simplest background — a single flat colour.</p>
+        <span class="label">background-color: #1a1a2e;</span>
+    </div>
+
+
+    <!-- 2. LINEAR GRADIENT (2 stops) -->
+    <div class="section bg-linear-lr">
+        <h2>2. Linear Gradient — Left to Right</h2>
+        <p>Smoothly transitions between two colours horizontally.</p>
+        <span class="label">background: linear-gradient(to right, #e96c6c, #ffcc00);</span>
+    </div>
+
+
+    <!-- 3. LINEAR GRADIENT (multiple stops + diagonal) -->
+    <div class="section bg-linear-multi">
+        <h2>3. Linear Gradient — Diagonal, Multiple Stops</h2>
+        <p>You can add as many colour stops as you like, and control the angle in degrees.</p>
+        <span class="label">background: linear-gradient(135deg, #0f3460, #533483, #e94560);</span>
+    </div>
+
+
+    <!-- 4. RADIAL GRADIENT -->
+    <div class="section bg-radial">
+        <h2>4. Radial Gradient</h2>
+        <p>Radiates outward from a point. <code>circle at center</code> defines the shape and origin.</p>
+        <span class="label">background: radial-gradient(circle at center, #ffcc00, #e96c6c, #1a1a2e);</span>
+    </div>
+
+
+    <!-- 5. IMAGE -->
+    <div class="section bg-image">
+        <h2>5. Image Background</h2>
+        <p><code>cover</code> scales the image to fill the container. <code>center</code> keeps it centred.</p>
+        <span class="label">background: url('image2.jpg') center / cover no-repeat;</span>
+    </div>
+
+
+    <!-- 6. IMAGE + OVERLAY -->
+    <div class="section bg-image-overlay">
+        <h2>6. Image + Dark Overlay</h2>
+        <p>Two backgrounds stacked. The gradient (top layer) darkens the photo so white text stays readable. This is the standard hero-section pattern.</p>
+        <span class="label">background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image2.jpg');</span>
+    </div>
+
+
+    <!-- 7. ANIMATED -->
+    <div class="section bg-animated">
+        <h2>7. Animated Gradient</h2>
+        <p>The gradient is made 400% wide and an animation shifts the background-position back and forth, creating a flowing colour cycle.</p>
+        <span class="label">animation: gradientShift 6s ease infinite;</span>
+    </div>
+
+
+    <!-- 8. RGBA TRANSPARENCY -->
+    <div class="bg-rgba-wrapper">
+        <div class="bg-rgba-inner">
+            <h2 style="margin:0 0 8px 0;">8. RGBA — Semi-Transparent Color</h2>
+            <p style="margin:0 0 6px 0;">The checkerboard behind this box bleeds through. The 4th value in <code>rgba()</code> controls opacity (0 = invisible, 1 = solid).</p>
+            <span class="label">background-color: rgba(0, 87, 183, 0.4);</span>
+        </div>
+    </div>
+
+</body>
+</html>
